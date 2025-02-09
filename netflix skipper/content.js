@@ -24,7 +24,6 @@ function waitForVideoPlayer() {
     const targetNode = document.querySelector(".watch-video");
 
     if (targetNode) {
-
         const observer = new MutationObserver(() => {
             checkButtons();
         });
@@ -33,7 +32,12 @@ function waitForVideoPlayer() {
 
         checkButtons();
     } else {
-        setTimeout(waitForVideoPlayer, 500);
+        const observer = new MutationObserver(() => {
+            if (document.querySelector(".watch-video")) {
+                waitForVideoPlayer();
+            }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
     }
 }
 
