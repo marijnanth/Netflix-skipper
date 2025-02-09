@@ -1,0 +1,24 @@
+{
+    "name": "Netflix skipper",
+    "description": "Base netflix skipper",
+    "version": "1.0",
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "skipper.html",
+        "default_icon": "netflix_skipper.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.netflix.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}

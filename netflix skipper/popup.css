@@ -1,0 +1,44 @@
+body {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: larger;
+    background-color: white;
+}
+
+.rowIntro,
+.rowEpisode {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    font-size: larger;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #E50914;
+}
+
+.toggle {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    display: inline-block;
+    user-select: none;
+    width: 8rem;
+    font-weight: bold;
+  }
+
+  .box {
+    display: none;
+  }
+
+  .box:checked + .toggle {
+    background-color: #E50914;
+    color: rgb(0, 0, 0);
+  }
