@@ -1,6 +1,6 @@
 {
-    "name": "Netflix skipper",
-    "description": "Basic netflix skipper",
+    "name": "Better Netflix",
+    "description": "Improve netflix website",
     "version": "2.0",
     "permissions": [
         "storage"
@@ -8,7 +8,7 @@
     "manifest_version": 3,
     "action": {
         "default_popup": "skipper.html",
-        "default_icon": "netflix_skipper.png"
+        "default_icon": "logo.png"
     },
     "content_scripts": [
         {
