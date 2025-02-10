@@ -44,9 +44,15 @@ function waitForVideoPlayer() {
 }
 
 function formatTime(ms) {
-    const minutes = Math.floor(ms / 60000);
+    const hours = Math.floor(ms / 3600000);
+    const minutes = Math.floor((ms % 3600000) / 60000);
     const seconds = Math.floor((ms % 60000) / 1000);
-    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    if (hours > 0) {
+        return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
 }
 
 function showTimeElapsed(timelineKnob) {
@@ -65,20 +71,26 @@ function showTimeElapsed(timelineKnob) {
 
     leftTimeContainer = document.createElement('div');
     leftTimeContainer.className = 'elapsed-time-container';
-    leftTimeContainer.style.zIndex = '999';
-    leftTimeContainer.style.position = 'absolute';
-    leftTimeContainer.style.left = '10px';
-    leftTimeContainer.style.bottom = '10px';
-    leftTimeContainer.style.color = 'white';
-    leftTimeContainer.style.fontSize = '14px';
+    leftTimeContainer.style.paddingRight = '1rem';
+    leftTimeContainer.style.marginTop = 'auto';
     leftTimeContainer.innerHTML = formatTime(initialValueNow);
 
-
     const timeline = document.querySelector('[data-uia="timeline-bar"');
-    timeline.style.maxWidth = '80%';
 
     if (timeline) {
-        timeline.parentNode.insertBefore(leftTimeContainer, timeline);
+        let wrapper = document.createElement("div");
+        wrapper.id = "wrapper";
+
+        timeline.parentNode.insertBefore(wrapper, timeline);
+
+        wrapper.appendChild(leftTimeContainer);
+        wrapper.appendChild(timeline);
+
+        wrapper.style.display = 'flex';
+        wrapper.style.justifyContent = 'space-between';
+        wrapper.style.fontSize = '1.6rem';
+
+        timeline.style.marginTop = 'auto';
     }
 }
 
