@@ -1,7 +1,7 @@
 {
     "name": "Netflix skipper",
-    "description": "Base netflix skipper",
-    "version": "1.0",
+    "description": "Basic netflix skipper",
+    "version": "2.0",
     "permissions": [
         "storage",
         "tabs",
