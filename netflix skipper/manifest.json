@@ -3,9 +3,7 @@
     "description": "Basic netflix skipper",
     "version": "2.0",
     "permissions": [
-        "storage",
-        "tabs",
-        "activeTab"
+        "storage"
     ],
     "manifest_version": 3,
     "action": {
